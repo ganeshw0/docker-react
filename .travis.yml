@@ -1,0 +1,9 @@
+sudo: required
+servies: 
+    -docker
+
+before_install:
+    - docker build -t gwaghmare/docker-react -f Dockerfile.dev .
+script:
+    - docker run gwaghmare/docker-react npm run test -- --coverage
+
